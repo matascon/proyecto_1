@@ -1,0 +1,225 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--color-nav-main: #131a22;
+	--color-nav-secondary: #232f3e;
+	--color-background-select: #e3e6e6;
+	--color-font-select: #444444;
+	--color-buttonSearch-noFocus: #febd69;
+	--color-buttonSearch-focus: #f08804;
+	--font-family-amazon: 'Amazon Ember', sans-serif;
+}
+
+body {
+	font-family: var(--font-family-amazon);
+}
+
+a {
+	text-decoration: none;
+}
+
+/*-----> HEADER <-----*/
+
+header {
+	display: flex;
+	width: 100%;
+	color: #fff;
+}
+
+	.nav-main {
+		display: flex;
+		position: fixed;
+		width: 100%;
+		height: 60px;
+		background-color: var(--color-nav-main);
+		gap: 20px;
+	}
+
+		.nav-main a {
+			color: #fff;
+		}
+
+		.logo-and-location {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			height: 100%;
+			width: auto;
+			gap: 10px;
+			padding: 0 0 0 20px;
+		}
+
+			.logo-amazon {
+				display: flex;
+				height: 72%;
+				width: 1fr;
+				font-size: 14px;
+				padding: 5px;
+				border: var(--color-nav-main) 1px solid;
+			}
+
+				.logo-amazon:hover {
+					border-color: #fff;
+				}
+
+				.logo-amazon > a {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+
+			.location {
+				height: 72%;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				padding: 0 5px 0 0;
+				border: var(--color-nav-main) 1px solid;
+			}
+
+				.location:hover {
+					border-color: #fff;
+				}
+
+				.location > a {
+					display: flex;
+					text-decoration: none;
+					font-weight: 600;
+					font-size: 14px;
+				}
+
+				.location > a > img {
+					width: 32px;
+					height: 26px;
+				}
+
+		.search {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: auto;
+			flex-grow: 4;
+		}
+
+			.search > form {
+				display: flex;
+				outline: none;
+				height: 72%;
+				width: 100%;
+				border: var(--color-nav-main) 3px solid;
+				border-radius: 8px;
+			}
+
+			.search > form:focus-within {
+				border-color: #f08804;
+			}
+
+			.search > form > select {
+				outline: none;
+				border: none;
+				cursor: pointer;
+				border-radius: 5px 0 0 5px;
+				height: 100%;
+				width: 170px;
+				background-color: var(--color-background-select);
+				color: var(--color-font-select);
+				font-size: 12px;
+				font-family: var(--font-family-amazon);
+				padding: 0 0 0 10px;
+			}
+
+			.search > form > input{
+				outline: none;
+				border: none;
+				height: 100%;
+				width: 100%;
+				font-family: var(--font-family-amazon);
+				font-size: 16px;
+				padding: 0 0 0 10px;
+			}
+
+			.search > form > div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: var(--color-buttonSearch-noFocus);
+				height: 100%;
+				width: 1fr;
+				padding: 0 10px 0 10px;
+				border-radius: 0 5px 5px 0;
+				cursor: pointer;
+			}
+
+				.search > form > div > input {
+					width: 22px;
+					height: 22px;
+				}
+
+		.account-and-shoppingCart {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-grow: 0.5;
+			padding: 0 20px 0 0;
+			gap: 10px
+		}
+
+			.account {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 72%;
+				padding: 5px;
+			}
+
+					.account > a > p:nth-child(1) {
+						font-size: 12px;
+					}
+
+					.account > a > p:nth-child(2) {
+						font-size: 14px;
+						font-weight: 600;
+					}
+
+			.orders {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 72%;
+				padding: 5px;
+			}
+
+					.orders > a > p:nth-child(1) {
+						font-size: 12px;
+					}
+
+					.orders > a > p:nth-child(2) {
+						font-size: 14px;
+						font-weight: 600;
+					}
+
+			.shoppingCart {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 72%;
+				padding: 5px;
+			}
+
+				.shoppingCart > a {
+					display: flex;
+					justify-content: center;
+					align-items: end;
+				}
+
+					.shoppingCart > a > p {
+						font-size: 14px;
+						font-weight: 600;
+					}
