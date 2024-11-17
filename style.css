@@ -10,7 +10,10 @@
 	--color-background-select: #e3e6e6;
 	--color-font-select: #444444;
 	--color-buttonSearch-noFocus: #febd69;
-	--color-buttonSearch-focus: #f08804;
+	--color-buttonSearch-focus: #f3a847;
+	--color-buttonLogin: #ffd814;
+	--color-linkList-noHover: #0055aa;
+	--color-linkList-hover: #c7511f;
 	--font-family-amazon: 'Amazon Ember', sans-serif;
 }
 
@@ -22,17 +25,24 @@ a {
 	text-decoration: none;
 }
 
+li {
+	list-style-type: none;
+}
+
 /*-----> HEADER <-----*/
+
+/*--->NAV #1 <---*/
 
 header {
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	color: #fff;
 }
 
 	.nav-main {
 		display: flex;
-		position: fixed;
+		position: static;
 		width: 100%;
 		height: 60px;
 		background-color: var(--color-nav-main);
@@ -55,10 +65,12 @@ header {
 
 			.logo-amazon {
 				display: flex;
+				justify-content: center;
+				align-items: center;
 				height: 72%;
 				width: 1fr;
 				font-size: 14px;
-				padding: 5px;
+				padding: 5px 5px 5px 5px;
 				border: var(--color-nav-main) 1px solid;
 			}
 
@@ -79,7 +91,7 @@ header {
 				justify-content: center;
 				align-items: center;
 				cursor: pointer;
-				padding: 0 5px 0 0;
+				padding: 0 10px 0 0;
 				border: var(--color-nav-main) 1px solid;
 			}
 
@@ -135,6 +147,10 @@ header {
 				padding: 0 0 0 10px;
 			}
 
+				.search > form > select:focus{
+					color: #000;
+				}
+
 			.search > form > input{
 				outline: none;
 				border: none;
@@ -157,6 +173,10 @@ header {
 				cursor: pointer;
 			}
 
+				.search > form > div:hover {
+					background-color: var(--color-buttonSearch-focus);
+				}
+
 				.search > form > div > input {
 					width: 22px;
 					height: 22px;
@@ -177,7 +197,16 @@ header {
 				align-items: center;
 				height: 72%;
 				padding: 5px;
+				border: var(--color-nav-main) 1px solid;
 			}
+
+				.account:hover {
+					border-color: #fff;
+				}
+
+					.account:hover .account-list {
+						display: grid;
+					}
 
 					.account > a > p:nth-child(1) {
 						font-size: 12px;
@@ -188,13 +217,102 @@ header {
 						font-weight: 600;
 					}
 
+					.account-list {
+						position: absolute;
+						background-color: #fff;
+						width: 500px;
+						display: none;
+						grid-template-columns: auto;
+						grid-template-rows: auto auto;
+						color: #000;
+						border: #000 1px solid;
+						top: 52px;
+						border-radius: 5px;
+					}
+
+						.account-list a {
+							color: #000;;
+						}
+
+						.account-list > div:nth-child(1) {
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+							margin: 0 15px 0 15px;
+							padding: 15px 0 15px 0;
+							border-bottom: var(--color-background-select) 1px solid;
+						}
+
+							.account-list > div:nth-child(1) > a {
+								font-size: 14px;
+								padding: 10px 80px 10px 80px;
+								border-radius: 5px;
+								background-color: var(--color-buttonLogin);
+								box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.09);
+								margin: 0 0 10px 0;
+							}
+
+								.account-list > div:nth-child(1) > a:hover {
+									text-decoration: underline;
+									text-decoration-color: var(--color-linkList-hover);
+								}
+
+							.account-list > div:nth-child(1) > p {
+								font-size: 12px;
+							}
+
+								.account-list > div:nth-child(1) > p > a {
+									color: var(--color-linkList-noHover);
+									text-decoration: underline;
+								}
+
+								.account-list > div:nth-child(1) > p > a:hover {
+									color: var(--color-linkList-hover);
+								}
+
+						.account-list > div:nth-child(2){
+							display: flex;
+							line-height: 25px;
+							margin: 15px 15px 15px 15px;
+						}
+
+								.account-list > div:nth-child(2) p {
+									font-size: 16px;
+									font-weight: 600;
+								}
+
+								.account-list > div:nth-child(2) ul {
+									font-size: 14px;
+								}
+
+								.account-list > div:nth-child(2) a:hover {
+									text-decoration: underline;
+									color: var(--color-linkList-hover);
+								}
+
+								.account-list > div:nth-child(2) > div:nth-child(1) {
+									width: 50%;
+								}
+
+								.account-list > div:nth-child(2) > div:nth-child(2) {
+									width: 50%;
+									padding: 0 0 0 15px;
+									border-left: var(--color-background-select) 1px solid;
+								}
+
 			.orders {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				height: 72%;
 				padding: 5px;
+				border: var(--color-nav-main) 1px solid;
 			}
+
+				.orders:hover {
+					border-color: #fff;
+				}
 
 					.orders > a > p:nth-child(1) {
 						font-size: 12px;
@@ -211,10 +329,17 @@ header {
 				align-items: center;
 				height: 72%;
 				padding: 5px;
+				border: var(--color-nav-main) 1px solid;
 			}
+
+				.shoppingCart:hover {
+					border-color: #fff;
+				}
 
 				.shoppingCart > a {
 					display: flex;
+					height: 100%;
+					width: 100%;
 					justify-content: center;
 					align-items: end;
 				}
@@ -223,3 +348,124 @@ header {
 						font-size: 14px;
 						font-weight: 600;
 					}
+
+/*--->NAV #2 <---*/
+
+	.nav-secondary {
+		height: 40px;
+		width: auto;
+		display: flex;
+		background-color: var(--color-nav-secondary);
+	}
+
+		.nav-secondary > ul {
+			display: flex;
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+			margin: 0 0 0 10px;
+		}
+
+			.nav-secondary > ul::-webkit-scrollbar {
+				display: none;
+			}
+
+			.nav-secondary > ul > li {
+				display: flex;
+				white-space: nowrap;
+				justify-content: center;
+				align-items: center;
+				padding: 0 13px 0 13px;
+				height: 100%;
+				border: var(--color-nav-secondary) 1px solid;
+				cursor: pointer;
+				font-size: 14px;
+			}
+
+				.nav-secondary > ul > li:nth-child(1) {
+					font-weight: 600;
+					gap: 5px;
+				}
+
+				.nav-secondary > ul > li:hover {
+					border-color: #fff;
+				}
+
+				.nav-secondary > ul > li > a{
+					color: #fff;
+				}
+
+/* -> Menu <- */
+
+	.nav-secondary > ul > li:nth-child(1) .menu{
+		transition: 700ms;
+	}
+
+	.nav-secondary > ul > li:nth-child(1):hover .menu{
+		left: 0;
+	}
+
+	.menu {
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: -400px;
+		color: #000;
+		background-color: #fff;
+		cursor: auto;
+	}
+
+		.menu p {
+			font-size: 18px;
+		}
+
+		.menu li {
+			font-weight: 400;
+		}
+
+		.menu-profile {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			height: 5.5%;
+			background-color: var(--color-nav-secondary);
+			color: #fff;
+			gap: 12px;
+			padding: 0px 0 0px 40px;
+			cursor: pointer;
+		}
+
+			.menu-profile > img {
+				width: 25px;
+			}
+
+		.menu-options {
+			display: flex;
+			flex-direction: column;
+			height: 94.5%;
+			line-height: 40px;
+			overflow-y: scroll;
+		}
+
+			.menu-options > div {
+				padding: 12px 0 10px 0;
+			}
+
+			.menu-options p,
+			.menu-options li {
+				width: 100%;
+				padding: 0 20px 0 38px;
+			}
+
+			.menu-options li:hover {
+				cursor: pointer;
+				background-color: var(--color-background-select);
+			}
+
+			.menu-options > div:nth-child(2),
+			.menu-options > div:nth-child(3),
+			.menu-options > div:nth-child(4),
+			.menu-options > div:nth-child(5) {
+				border-top: var(--color-background-select) 1px solid;
+			}
+
+/* -> End Menu <- */
