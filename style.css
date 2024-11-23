@@ -5,6 +5,7 @@
 }
 
 :root {
+	--color-border-div: #e3e6e6;
 	--color-nav-main: #131a22;
 	--color-nav-secondary: #232f3e;
 	--color-background-select: #e3e6e6;
@@ -12,8 +13,21 @@
 	--color-buttonSearch-noFocus: #febd69;
 	--color-buttonSearch-focus: #f3a847;
 	--color-buttonLogin: #ffd814;
+	--color-border: #aaaaaa;
 	--color-linkList-noHover: #0055aa;
 	--color-linkList-hover: #c7511f;
+	--color-linkNavSecondary-noHover: #0055aa;
+	--color-linkNavSecondary-Hover: #c7511f;
+	--color-backgroundSupermarket-div-noHover: #f2f5f7;
+	--color-backgroundSupermarket-div-Hover: #ebeef0;
+	--color-backgroundPrime-div: #36c2b4;
+	--color-buttonPrime-div-noHover: #ffd814;
+	--color-buttonPrime-div-Hover: #f7ca00;
+	--color-background-main: #e3e6e6;
+	--color-linkProducts-noHover: #0055aa;
+	--color-linkProducts-Hover: #c7511f;
+	--color-comeBack-noHover: #37475a;
+	--color-comeBack-Hover: #485769;
 	--font-family-amazon: 'Amazon Ember', sans-serif;
 }
 
@@ -29,9 +43,9 @@ li {
 	list-style-type: none;
 }
 
-/*-----> HEADER <-----*/
+/*----->HEADER<-----*/
 
-/*--->NAV #1 <---*/
+/*--->NAV-MAIN<---*/
 
 header {
 	display: flex;
@@ -42,7 +56,7 @@ header {
 
 	.nav-main {
 		display: flex;
-		position: static;
+		position: fixed;
 		width: 100%;
 		height: 60px;
 		background-color: var(--color-nav-main);
@@ -217,6 +231,8 @@ header {
 						font-weight: 600;
 					}
 
+/*->ACCOUNT-LIST<-*/
+
 					.account-list {
 						position: absolute;
 						background-color: #fff;
@@ -225,7 +241,7 @@ header {
 						grid-template-columns: auto;
 						grid-template-rows: auto auto;
 						color: #000;
-						border: #000 1px solid;
+						border: var(--color-border) 1px solid;
 						top: 52px;
 						border-radius: 5px;
 					}
@@ -241,7 +257,7 @@ header {
 							align-items: center;
 							margin: 0 15px 0 15px;
 							padding: 15px 0 15px 0;
-							border-bottom: var(--color-background-select) 1px solid;
+							border-bottom: var(--color-border-div) 1px solid;
 						}
 
 							.account-list > div:nth-child(1) > a {
@@ -273,7 +289,7 @@ header {
 
 						.account-list > div:nth-child(2){
 							display: flex;
-							line-height: 25px;
+							line-height: 3.8vh;
 							margin: 15px 15px 15px 15px;
 						}
 
@@ -298,8 +314,10 @@ header {
 								.account-list > div:nth-child(2) > div:nth-child(2) {
 									width: 50%;
 									padding: 0 0 0 15px;
-									border-left: var(--color-background-select) 1px solid;
+									border-left: var(--color-border-div) 1px solid;
 								}
+
+/*->END ACCOUNT-LIST<-*/
 
 			.orders {
 				display: flex;
@@ -349,10 +367,13 @@ header {
 						font-weight: 600;
 					}
 
-/*--->NAV #2 <---*/
+/*--->END NAV-MAIN*/
+
+/*--->NAV-SECONDARY <---*/
 
 	.nav-secondary {
-		height: 40px;
+		margin: 60px 0 0 0;
+		height: auto;
 		width: auto;
 		display: flex;
 		background-color: var(--color-nav-secondary);
@@ -360,22 +381,18 @@ header {
 
 		.nav-secondary > ul {
 			display: flex;
-			flex-wrap: nowrap;
-			overflow-x: scroll;
-			margin: 0 0 0 10px;
+			width: 100%;
+			justify-content: space-around;
+			flex-wrap: wrap;
 		}
-
-			.nav-secondary > ul::-webkit-scrollbar {
-				display: none;
-			}
 
 			.nav-secondary > ul > li {
 				display: flex;
 				white-space: nowrap;
 				justify-content: center;
 				align-items: center;
-				padding: 0 13px 0 13px;
-				height: 100%;
+				padding: 0 5px 0 5px;
+				height: 40px;
 				border: var(--color-nav-secondary) 1px solid;
 				cursor: pointer;
 				font-size: 14px;
@@ -394,7 +411,7 @@ header {
 					color: #fff;
 				}
 
-/* -> Menu <- */
+/* ->MENU<- */
 
 	.nav-secondary > ul > li:nth-child(1) .menu{
 		transition: 700ms;
@@ -465,7 +482,438 @@ header {
 			.menu-options > div:nth-child(3),
 			.menu-options > div:nth-child(4),
 			.menu-options > div:nth-child(5) {
-				border-top: var(--color-background-select) 1px solid;
+				border-top: var(--color-border-div) 1px solid;
 			}
 
-/* -> End Menu <- */
+/*->END MENU<-*/
+
+/*->NAV-SECONDARY-SUPERMARKET<-*/
+
+	.nav-secondary > ul > li:nth-child(2):hover .nav-secondary-supermarket{
+		display: flex;
+	}
+
+	.nav-secondary-supermarket {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 100px;
+		left: 20px;
+		background-color: #fff;
+		border: var(--color-border) 1px solid;
+		border-radius: 5px;
+		padding: 20px 20px 20px 20px;
+		cursor: auto;
+	}
+
+		.nav-secondary-supermarket > p {
+			font-size: 18px;
+			font-weight: 600;
+			color: #000;
+		}
+
+		.nav-secondary-supermarket > div {
+			display: grid;
+			grid-template-columns: repeat(2 , 160px);
+			grid-template-rows: repeat(2 , 160px);
+			gap: 5px;
+			margin: 20px 0 20px 0;
+		}
+
+			.nav-secondary-supermarket > div > a {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: var(--color-backgroundSupermarket-div-noHover);
+				transition: 400ms;
+			}
+
+			.nav-secondary-supermarket > div > a:hover {
+				background-color: var(--color-backgroundSupermarket-div-Hover);
+			}
+
+			.nav-secondary-supermarket > div img {
+				height: 80px;
+				width: auto;
+			}
+
+		.nav-secondary-supermarket > a {
+			font-size: 14px;
+			color: var(--color-linkNavSecondary-noHover);
+			padding: 20px 0 0 0;
+			border-top: var(--color-border-div) 1px solid;
+		}
+
+			.nav-secondary-supermarket > a:hover {
+				color: var(--color-linkNavSecondary-Hover);
+				text-decoration: underline;
+			}
+
+/*->END NAV-SECONDARY-SUPERMARKET<-*/
+
+/*->NAV-SECONDARY-PRIME<-*/
+
+	.nav-secondary > ul > li:nth-child(7):hover .nav-secondary-prime{
+		display: flex;
+	}
+
+	.nav-secondary-prime {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 100px;
+		left: auto;
+		border: var(--color-border) 1px solid;
+		border-radius: 5px;
+		padding: 15px 15px 15px 15px;
+		background-color: #fff;
+		cursor: auto;
+	}
+
+		.nav-secondary-prime > div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+			height: auto;
+			width: 300px;
+			white-space: wrap;
+			background-color: var(--color-backgroundPrime-div);
+			padding: 20px 10px 20px 10px;
+		}
+
+			.nav-secondary-prime > div > img:nth-child(1) {
+				height: auto;
+				width: 200px;
+			}
+
+			.nav-secondary-prime > div > p {
+				font-size: 18px;
+				text-align: center;
+			}
+
+			.nav-secondary-prime > div > a {
+				background-color: var(--color-buttonPrime-div-noHover);
+				color: #000;
+				line-height: 25px;
+				border-radius: 50px;
+				padding: 10px 30px 10px 30px;
+			}
+
+				.nav-secondary-prime > div > a:hover {
+					background-color: var(--color-buttonPrime-div-Hover);
+				}
+
+				.nav-secondary-prime > div > a > p {
+					text-align: center;
+					font-weight: 600;
+				}
+
+			.nav-secondary-prime > div > img:nth-child(4) {
+				width: 250px;
+			}
+
+/*->END NAV-SECONDARY-PRIME*/
+
+/*->NAV-SECONDARY-GIFTCARDS*/
+
+	.nav-secondary > ul > li:nth-child(9):hover .nav-secondary-giftcards{
+		display: flex;
+	}
+
+	.nav-secondary-giftcards {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 100px;
+		left: auto;
+		background-color: #fff;
+		border: var(--color-border) 1px solid;
+		border-radius: 5px;
+		padding: 20px 20px 20px 20px;
+		cursor: auto;
+	}
+
+		.nav-secondary-giftcards > p {
+			font-size: 18px;
+			font-weight: 600;
+			color: #000;
+		}
+
+		.nav-secondary-giftcards > div {
+			display: grid;
+			grid-template-columns: repeat(2 , 160px);
+			grid-template-rows: repeat(2 , 160px);
+			gap: 5px;
+			margin: 20px 0 20px 0;
+		}
+
+			.nav-secondary-giftcards > div > a {
+				height: 100%;
+				width: 100%;
+			}
+
+			.nav-secondary-giftcards > div img {
+				height: 100%;
+				width: 100%;
+			}
+		
+		.nav-secondary-giftcards > a {
+			font-size: 14px;
+			color: var(--color-linkNavSecondary-noHover);
+			padding: 20px 0 0 0;
+			border-top: var(--color-border-div) 1px solid;
+		}
+
+			.nav-secondary-giftcards > a:hover {
+				color: var(--color-linkNavSecondary-Hover);
+				text-decoration: underline;
+			}
+
+/*->END NAV-SECONDARY-GIFTCARDS<-*/
+
+/*--->END NAV-SECONDARY <---*/
+
+/*----->END HEADER<-----*/
+
+
+
+/*----->MAIN<-----*/
+
+main {
+	height: auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background-color: var(--color-background-main);
+	padding: 0 0 20px 0;
+}
+
+/*--->STORE<---*/
+
+.store {
+	height: auto;
+	width: 80%;
+}
+
+/*->BANNER<-*/
+
+	.banner img {
+		height: auto;
+		width: 100%;
+	}
+
+/*->END BANNER<-*/
+
+/*->PRODUCTS<-*/
+
+	.products {
+		width: 100%;
+		height: auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+		grid-auto-rows: minmax(420px, 1fr);
+		gap: 20px;
+		padding: 20px 0 20px 0;
+	}
+
+		.products > div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 20px 20px 20px 20px;
+			background-color: #fff;
+			line-height: 28px;
+		}
+
+			.products > div > p {
+				font-weight: 600;
+				font-size: 18px;
+			}
+
+			.products > div > div:nth-child(1),
+			.products > div > div:nth-child(2),
+			.products > div > div:nth-child(6) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-auto-rows: 145px;
+				gap: 15px;
+			}
+
+				.products > div > div:nth-child(1) > a,
+				.products > div > div:nth-child(2) > a,
+				.products > div > div:nth-child(6) > a {
+					display: grid;
+					grid-template-columns: 1fr;
+					grid-template-rows: 100%;
+				}
+
+			.products img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+
+			.products > div > a:nth-child(3) {
+				color: var(--color-linkProducts-noHover);
+			}
+
+				.products > div > a:nth-child(3):hover {
+					color: var(--color-linkProducts-Hover);
+					text-decoration: underline;
+				}
+
+/*->END PRODUCTS<-*/
+
+/*->GIFTS<-*/
+
+.gifts {
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 20px 20px 20px 20px;
+	gap: 20px;
+	background-color: #fff;
+}
+
+	.gifts > p {
+		font-size: 18px;
+		font-weight: 600;
+	}
+
+	.gifts > div {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+		.gifts > div > a {
+			height: 180px;
+			width: 180px;
+		}
+
+			.gifts img {
+				height: 100%;
+				width: 100%;
+				object-fit: contain;
+			}
+
+/*->END GIFTS<-*/
+
+/*--->END STORE<---*/
+
+/*----->END MAIN<-----*/
+
+/*----->FOOTER<-----*/
+
+footer {
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+	.come-back {
+		height: 60px;
+		width: 100%;
+		display: flex;
+		cursor: pointer;
+		background-color: var(--color-comeBack-noHover);
+	}
+
+		.come-back > a {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+		}
+
+		.come-back:hover {
+			background-color: var(--color-comeBack-Hover);
+		}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@ ¡MEDIA QUERYS! @@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/*-------------------------FOR TABLET-------------------------------*/
+
+@media (max-width: 1120px) {
+
+/*----->HEADER<-----*/
+
+	/*--->NAV-MAIN<---*/
+
+	.logo-and-location {
+		gap: 0;
+		padding: 0 0 0 5px;
+		}
+
+		.location {
+			display: none;
+		}
+
+	.search > form > select {
+		width: 3.2vw;
+		padding: 0px 0px 0px 22px;
+	}
+
+	/*--->END NAV-MAIN<---*/
+
+	/*--->NAV-SECONDARY<---*/
+
+	.nav-secondary > ul {
+		flex-wrap: nowrap;
+		overflow-x: scroll;
+	}
+
+		.nav-secondary > ul::-webkit-scrollbar {
+			display: none;
+		}
+
+	/*->NAV-SECONDARY-SUPERMARKET*/
+
+	.nav-secondary > ul > li:nth-child(2):hover .nav-secondary-supermarket{
+		display: none;
+	}
+
+	/*->END NAV-SECONDARY-SUPERMARKET<-*/
+
+	/*->NAV-SECONDARY-PRIME*/
+
+	.nav-secondary > ul > li:nth-child(7):hover .nav-secondary-prime{
+		display: none;
+	}
+
+	/*->END NAV-SECONDARY-PRIME<-*/
+
+	/*->NAV-SECONDARY-GIFTCARDS*/
+
+	.nav-secondary > ul > li:nth-child(9):hover .nav-secondary-giftcards{
+		display: none;
+	}
+
+	/*->END NAV-SECONDARY-GIFTCARDS<-*/
+
+	/*--->END NAV-SECONDARY <---*/
+
+/*----->END HEADER<-----*/
+
+
+
+/*----->MAIN<-----*/
+
+	.store {
+		width: 100%;
+		padding: 0 20px 0 20px;
+	}
+}
